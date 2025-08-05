@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, TrendingUp, Clock, ArrowRight } from "lucide-react";
+import PurchaseFlow from "./PurchaseFlow";
 
 interface UseCaseCardProps {
+  id: string;
   title: string;
   description: string;
   category: string;
@@ -11,14 +13,17 @@ interface UseCaseCardProps {
   roi: string;
   timeToImplement: string;
   price: string;
+  priceInCents: number;
   featured?: boolean;
   seller: {
+    id: string;
     name: string;
     verified: boolean;
   };
 }
 
 const UseCaseCard = ({
+  id,
   title,
   description,
   category,
@@ -27,6 +32,7 @@ const UseCaseCard = ({
   roi,
   timeToImplement,
   price,
+  priceInCents,
   featured = false,
   seller
 }: UseCaseCardProps) => {
@@ -100,10 +106,20 @@ const UseCaseCard = ({
         </div>
 
         {/* CTA */}
-        <Button className="w-full group" variant={featured ? "cta" : "default"}>
-          View Details
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Button>
+        <div className="space-y-2">
+          <PurchaseFlow 
+            useCase={{
+              id,
+              title,
+              price: priceInCents,
+              seller_id: seller.id
+            }}
+          />
+          <Button variant="outline" size="sm" className="w-full group">
+            View Details
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </div>
       </div>
     </div>
   );

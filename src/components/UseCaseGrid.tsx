@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Filter, SortAsc, Search, Grid, List } from "lucide-react";
 
-const useCases = [
+  const useCases = [
   {
+    id: "1",
     title: "E-commerce Recommendation Engine",
     description: "Boost sales with personalized product recommendations. Advanced collaborative filtering with real-time learning capabilities.",
     category: "E-commerce",
@@ -15,9 +16,11 @@ const useCases = [
     roi: "190%",
     timeToImplement: "2-3 weeks",
     price: "$299",
-    seller: { name: "RetailAI Labs", verified: true }
+    priceInCents: 29900,
+    seller: { id: "seller1", name: "RetailAI Labs", verified: true }
   },
   {
+    id: "2",
     title: "HR Resume Screening Automation",
     description: "Streamline hiring with AI-powered resume analysis. Automatically rank candidates and identify top talent efficiently.",
     category: "Human Resources",
@@ -26,9 +29,11 @@ const useCases = [
     roi: "450%",
     timeToImplement: "1 week",
     price: "$149",
-    seller: { name: "HireSmart AI", verified: true }
+    priceInCents: 14900,
+    seller: { id: "seller2", name: "HireSmart AI", verified: true }
   },
   {
+    id: "3",
     title: "Content Generation Suite",
     description: "Create high-quality blog posts, social media content, and marketing copy. Includes brand voice training and SEO optimization.",
     category: "Content Generation",
@@ -37,9 +42,11 @@ const useCases = [
     roi: "220%",
     timeToImplement: "1-2 weeks",
     price: "$199",
-    seller: { name: "ContentCraft", verified: true }
+    priceInCents: 19900,
+    seller: { id: "seller3", name: "ContentCraft", verified: true }
   },
   {
+    id: "4",
     title: "Quality Control Vision System",
     description: "Automated defect detection for manufacturing. Real-time inspection with 99.5% accuracy and detailed reporting.",
     category: "Computer Vision",
@@ -48,9 +55,11 @@ const useCases = [
     roi: "650%",
     timeToImplement: "4-6 weeks",
     price: "$599",
-    seller: { name: "VisionTech Pro", verified: true }
+    priceInCents: 59900,
+    seller: { id: "seller4", name: "VisionTech Pro", verified: true }
   },
   {
+    id: "5",
     title: "Financial Risk Assessment Tool",
     description: "Advanced fraud detection and risk scoring for financial services. Machine learning models with explainable AI features.",
     category: "Data Analytics",
@@ -59,9 +68,11 @@ const useCases = [
     roi: "380%",
     timeToImplement: "3-4 weeks",
     price: "$449",
-    seller: { name: "FinAI Solutions", verified: true }
+    priceInCents: 44900,
+    seller: { id: "seller5", name: "FinAI Solutions", verified: true }
   },
   {
+    id: "6",
     title: "Inventory Optimization Engine",
     description: "Reduce costs and prevent stockouts with predictive inventory management. Demand forecasting with supply chain integration.",
     category: "Process Automation",
@@ -70,9 +81,11 @@ const useCases = [
     roi: "310%",
     timeToImplement: "2-3 weeks",
     price: "$349",
-    seller: { name: "SupplyChain AI", verified: true }
+    priceInCents: 34900,
+    seller: { id: "seller6", name: "SupplyChain AI", verified: true }
   },
   {
+    id: "7",
     title: "Customer Sentiment Analyzer",
     description: "Real-time social media and review sentiment tracking. Multi-platform monitoring with actionable insights and alerts.",
     category: "Data Analytics",
@@ -81,9 +94,11 @@ const useCases = [
     roi: "275%",
     timeToImplement: "1-2 weeks",
     price: "$179",
-    seller: { name: "SentimentIQ", verified: true }
+    priceInCents: 17900,
+    seller: { id: "seller7", name: "SentimentIQ", verified: true }
   },
   {
+    id: "8",
     title: "Email Marketing Optimizer",
     description: "AI-powered email campaign optimization. A/B testing automation, send-time optimization, and personalized content.",
     category: "Content Generation",
@@ -92,9 +107,11 @@ const useCases = [
     roi: "195%",
     timeToImplement: "1 week",
     price: "$129",
-    seller: { name: "MailAI Pro", verified: true }
+    priceInCents: 12900,
+    seller: { id: "seller8", name: "MailAI Pro", verified: true }
   },
   {
+    id: "9",
     title: "Voice Assistant Integration",
     description: "Custom voice commands for business workflows. Natural language processing with multi-language support.",
     category: "Customer Service",
@@ -103,7 +120,8 @@ const useCases = [
     roi: "320%",
     timeToImplement: "2-3 weeks",
     price: "$249",
-    seller: { name: "VoiceFlow AI", verified: true }
+    priceInCents: 24900,
+    seller: { id: "seller9", name: "VoiceFlow AI", verified: true }
   }
 ];
 
