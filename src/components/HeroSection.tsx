@@ -36,12 +36,12 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="cta" size="xl" className="group">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <Button variant="cta" size="xl" className="group w-full sm:w-auto">
                 Explore Use Cases
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="premium" size="xl">
+              <Button variant="premium" size="xl" className="w-full sm:w-auto">
                 Submit Your Solution
               </Button>
             </div>
