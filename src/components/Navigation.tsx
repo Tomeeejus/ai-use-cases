@@ -30,25 +30,21 @@ const Navigation = () => {
 
           {/* Navigation Items */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="hidden lg:flex">
+            <Button variant="ghost" size="sm" className="hidden md:flex">
               Browse
             </Button>
-            <Button variant="ghost" size="sm" className="hidden lg:flex">
+            <Button variant="ghost" size="sm" className="hidden md:flex">
               Categories
             </Button>
-            <Button variant="outline" size="sm" className="hidden md:flex">
+            <Button variant="outline" size="sm" className="hidden sm:flex">
               <Plus className="w-4 h-4" />
               Submit Use Case
             </Button>
-            <Button variant="hero" size="sm" className="hidden sm:flex">
+            <Button variant="hero" size="sm">
               <User className="w-4 h-4" />
               Sign In
             </Button>
-            {/* Mobile-optimized sign in */}
-            <Button variant="hero" size="icon" className="sm:hidden">
-              <User className="w-4 h-4" />
-            </Button>
-            <Button variant="ghost" size="icon" className="lg:hidden">
+            <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-4 h-4" />
             </Button>
           </div>

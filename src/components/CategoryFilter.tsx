@@ -31,7 +31,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }: CategoryFilterPr
     <div className="space-y-6">
       <div>
         <h2 className="text-lg font-semibold text-foreground mb-4">Browse by Category</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {categories.map((category) => {
             const Icon = category.icon;
             const isSelected = selectedCategory === category.id;

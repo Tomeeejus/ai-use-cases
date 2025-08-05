@@ -96,29 +96,11 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    /* Mobile optimizations */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* Prevent horizontal scroll on mobile */
-    overflow-x: hidden;
   }
 
-  /* Mobile touch improvements */
-  * {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-  }
-
-  /* Custom scrollbar - hide on mobile */
+  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
-  }
-
-  @media (max-width: 768px) {
-    ::-webkit-scrollbar {
-      width: 0px;
-      background: transparent;
-    }
   }
 
   ::-webkit-scrollbar-track {
@@ -131,17 +113,6 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground;
-  }
-
-  /* Mobile safe area padding */
-  @supports (padding: env(safe-area-inset-top)) {
-    .mobile-safe-top {
-      padding-top: env(safe-area-inset-top);
-    }
-    
-    .mobile-safe-bottom {
-      padding-bottom: env(safe-area-inset-bottom);
-    }
   }
 }
 
