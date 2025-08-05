@@ -9,7 +9,7 @@ const featuredUseCases = [
     reviews: 127,
     roi: "340%",
     timeToImplement: "2-3 weeks",
-    price: "$2,499",
+    price: "$399",
     featured: true,
     seller: {
       name: "TechCorp Solutions",
@@ -24,7 +24,7 @@ const featuredUseCases = [
     reviews: 94,
     roi: "520%",
     timeToImplement: "1-2 weeks",
-    price: "$1,899",
+    price: "$279",
     featured: true,
     seller: {
       name: "DataFlow AI",
@@ -39,7 +39,7 @@ const featuredUseCases = [
     reviews: 156,
     roi: "280%",
     timeToImplement: "3-4 weeks",
-    price: "$3,299",
+    price: "$549",
     featured: true,
     seller: {
       name: "SalesAI Pro",
