@@ -1,24 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Search, Menu, User, Plus, LogOut, Settings } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
-import { useNavigate } from "react-router-dom";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Search, Menu, User, Plus } from "lucide-react";
 
 const Navigation = () => {
-  const { user, signOut } = useAuth();
-  const navigate = useNavigate();
-
-  const handleSignOut = async () => {
-    await signOut();
-    navigate('/');
-  };
-
   return (
     <nav className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,60 +36,14 @@ const Navigation = () => {
             <Button variant="ghost" size="sm" className="hidden md:flex">
               Categories
             </Button>
-            {user ? (
-              <>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="hidden sm:flex"
-                  onClick={() => navigate('/upload-use-case')}
-                >
-                  <Plus className="w-4 h-4" />
-                  Submit Use Case
-                </Button>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="gap-2">
-                      <User className="w-4 h-4" />
-                      <span className="hidden sm:inline">
-                        {user.email?.split('@')[0]}
-                      </span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem onClick={() => navigate('/seller-dashboard')}>
-                      <Settings className="mr-2 h-4 w-4" />
-                      Seller Dashboard
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleSignOut}>
-                      <LogOut className="mr-2 h-4 w-4" />
-                      Sign Out
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </>
-            ) : (
-              <>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="hidden sm:flex"
-                  onClick={() => navigate('/auth')}
-                >
-                  <Plus className="w-4 h-4" />
-                  Submit Use Case
-                </Button>
-                <Button 
-                  variant="hero" 
-                  size="sm"
-                  onClick={() => navigate('/auth')}
-                >
-                  <User className="w-4 h-4" />
-                  Sign In
-                </Button>
-              </>
-            )}
+            <Button variant="outline" size="sm" className="hidden sm:flex">
+              <Plus className="w-4 h-4" />
+              Submit Use Case
+            </Button>
+            <Button variant="hero" size="sm">
+              <User className="w-4 h-4" />
+              Sign In
+            </Button>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="w-4 h-4" />
             </Button>
