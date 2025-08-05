@@ -14,7 +14,247 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      categories: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          amount: number
+          buyer_id: string
+          created_at: string | null
+          id: string
+          status: string | null
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          updated_at: string | null
+          use_case_id: string
+        }
+        Insert: {
+          amount: number
+          buyer_id: string
+          created_at?: string | null
+          id?: string
+          status?: string | null
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string | null
+          use_case_id: string
+        }
+        Update: {
+          amount?: number
+          buyer_id?: string
+          created_at?: string | null
+          id?: string
+          status?: string | null
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string | null
+          use_case_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_use_case_id_fkey"
+            columns: ["use_case_id"]
+            isOneToOne: false
+            referencedRelation: "use_cases"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          company: string | null
+          created_at: string | null
+          email: string
+          full_name: string | null
+          id: string
+          is_seller: boolean | null
+          updated_at: string | null
+          website: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          company?: string | null
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id: string
+          is_seller?: boolean | null
+          updated_at?: string | null
+          website?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          company?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          is_seller?: boolean | null
+          updated_at?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          comment: string | null
+          created_at: string | null
+          id: string
+          order_id: string
+          rating: number
+          reviewer_id: string
+          use_case_id: string
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string | null
+          id?: string
+          order_id: string
+          rating: number
+          reviewer_id: string
+          use_case_id: string
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string | null
+          id?: string
+          order_id?: string
+          rating?: number
+          reviewer_id?: string
+          use_case_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reviews_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reviews_reviewer_id_fkey"
+            columns: ["reviewer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reviews_use_case_id_fkey"
+            columns: ["use_case_id"]
+            isOneToOne: false
+            referencedRelation: "use_cases"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      use_cases: {
+        Row: {
+          case_study_url: string | null
+          category_id: string | null
+          created_at: string | null
+          demo_url: string | null
+          description: string
+          difficulty_level: string | null
+          featured: boolean | null
+          id: string
+          implementation_guide: string | null
+          price: number
+          roi: string | null
+          seller_id: string
+          status: string | null
+          tags: string[] | null
+          time_to_implement: string | null
+          title: string
+          tools_required: string[] | null
+          updated_at: string | null
+        }
+        Insert: {
+          case_study_url?: string | null
+          category_id?: string | null
+          created_at?: string | null
+          demo_url?: string | null
+          description: string
+          difficulty_level?: string | null
+          featured?: boolean | null
+          id?: string
+          implementation_guide?: string | null
+          price: number
+          roi?: string | null
+          seller_id: string
+          status?: string | null
+          tags?: string[] | null
+          time_to_implement?: string | null
+          title: string
+          tools_required?: string[] | null
+          updated_at?: string | null
+        }
+        Update: {
+          case_study_url?: string | null
+          category_id?: string | null
+          created_at?: string | null
+          demo_url?: string | null
+          description?: string
+          difficulty_level?: string | null
+          featured?: boolean | null
+          id?: string
+          implementation_guide?: string | null
+          price?: number
+          roi?: string | null
+          seller_id?: string
+          status?: string | null
+          tags?: string[] | null
+          time_to_implement?: string | null
+          title?: string
+          tools_required?: string[] | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "use_cases_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "use_cases_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
