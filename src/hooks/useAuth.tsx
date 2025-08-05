@@ -2,6 +2,9 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
+// Test mode - set to true to bypass authentication
+const TEST_MODE = true;
+
 interface AuthContextType {
   user: User | null;
   session: Session | null;
@@ -19,7 +22,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set up auth state listener
+    if (TEST_MODE) {
+      // Create mock user for testing
+      const mockUser = {
+        id: 'test-user-id',
+        email: 'test@example.com',
+        user_metadata: { full_name: 'test' }
+      } as User;
+      
+      setUser(mockUser);
+      setSession({ user: mockUser } as Session);
+      setLoading(false);
+      return;
+    }
+
+    // Normal auth flow
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setSession(session);
@@ -28,7 +45,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     );
 
-    // Check for existing session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
