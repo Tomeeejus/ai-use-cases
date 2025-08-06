@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import FeaturedSection from "@/components/FeaturedSection";
 import UseCaseGrid from "@/components/UseCaseGrid";
 
 const Index = () => {
@@ -9,7 +8,6 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <UseCaseGrid />
-      <FeaturedSection />
     </div>
   );
 };
