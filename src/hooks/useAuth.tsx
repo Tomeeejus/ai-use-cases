@@ -49,7 +49,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signUp = async (email: string, password: string, fullName?: string) => {
     const redirectUrl = `${window.location.origin}/`;
     
-    // For testing: Use admin client to create user without email confirmation
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -60,18 +59,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
       }
     });
-
-    // If user was created but needs confirmation, automatically confirm for testing
-    if (data?.user && !data?.user?.email_confirmed_at && !error) {
-      // Auto-confirm the user for testing purposes
-      try {
-        await supabase.auth.admin.updateUserById(data.user.id, {
-          email_confirm: true
-        });
-      } catch (adminError) {
-        console.log('Admin confirmation failed, user may need manual confirmation');
-      }
-    }
     
     return { error };
   };
