@@ -60,22 +60,18 @@ const SellerDashboard = () => {
       if (useCasesError) throw useCasesError;
       setUseCases(useCasesData || []);
 
-      // Fetch stats
-      const { data: ordersData, error: ordersError } = await supabase
-        .from("orders")
-        .select("amount")
-        .in("use_case_id", (useCasesData || []).map(uc => uc.id))
-        .eq("status", "completed");
+      // Use secure revenue function instead of accessing individual order amounts
+      const { data: revenueData, error: revenueError } = await supabase
+        .rpc('get_seller_revenue_stats', { seller_user_id: user.id });
 
-      if (ordersError) throw ordersError;
+      if (revenueError) throw revenueError;
 
-      const totalRevenue = (ordersData || []).reduce((sum, order) => sum + Number(order.amount), 0);
-      const totalOrders = ordersData?.length || 0;
+      const revenue = revenueData?.[0] || { total_revenue: 0, total_orders: 0, avg_order_value: 0 };
 
       setStats({
         totalUseCases: useCasesData?.length || 0,
-        totalRevenue,
-        totalOrders,
+        totalRevenue: Number(revenue.total_revenue),
+        totalOrders: Number(revenue.total_orders),
         averageRating: 4.5, // This would come from reviews table
       });
     } catch (error) {
