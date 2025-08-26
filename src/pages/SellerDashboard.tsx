@@ -15,7 +15,6 @@ interface UseCase {
   description: string;
   price: number;
   status: string;
-  featured: boolean;
   created_at: string;
 }
 
@@ -193,9 +192,6 @@ const SellerDashboard = () => {
                           <Badge variant={getStatusColor(useCase.status)}>
                             {useCase.status}
                           </Badge>
-                          {useCase.featured && (
-                            <Badge variant="default">Featured</Badge>
-                          )}
                         </div>
                       </div>
                     </CardHeader>

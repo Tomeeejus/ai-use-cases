@@ -179,63 +179,39 @@ export type Database = {
       }
       use_cases: {
         Row: {
-          case_study_url: string | null
           category_id: string | null
           created_at: string | null
-          demo_url: string | null
           description: string
-          difficulty_level: string | null
-          featured: boolean | null
           id: string
           implementation_guide: string | null
           price: number
-          roi: string | null
           seller_id: string
           status: string | null
-          tags: string[] | null
-          time_to_implement: string | null
           title: string
-          tools_required: string[] | null
           updated_at: string | null
         }
         Insert: {
-          case_study_url?: string | null
           category_id?: string | null
           created_at?: string | null
-          demo_url?: string | null
           description: string
-          difficulty_level?: string | null
-          featured?: boolean | null
           id?: string
           implementation_guide?: string | null
           price: number
-          roi?: string | null
           seller_id: string
           status?: string | null
-          tags?: string[] | null
-          time_to_implement?: string | null
           title: string
-          tools_required?: string[] | null
           updated_at?: string | null
         }
         Update: {
-          case_study_url?: string | null
           category_id?: string | null
           created_at?: string | null
-          demo_url?: string | null
           description?: string
-          difficulty_level?: string | null
-          featured?: boolean | null
           id?: string
           implementation_guide?: string | null
           price?: number
-          roi?: string | null
           seller_id?: string
           status?: string | null
-          tags?: string[] | null
-          time_to_implement?: string | null
           title?: string
-          tools_required?: string[] | null
           updated_at?: string | null
         }
         Relationships: [

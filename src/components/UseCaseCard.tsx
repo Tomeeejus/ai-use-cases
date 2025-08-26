@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, TrendingUp, Clock, ArrowRight } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 import PurchaseFlow from "./PurchaseFlow";
 
 interface UseCaseCardProps {
@@ -10,11 +10,8 @@ interface UseCaseCardProps {
   category: string;
   rating: number;
   reviews: number;
-  roi: string;
-  timeToImplement: string;
   price: string;
   priceInCents: number;
-  featured?: boolean;
   seller: {
     id: string;
     name: string;
@@ -29,23 +26,12 @@ const UseCaseCard = ({
   category,
   rating,
   reviews,
-  roi,
-  timeToImplement,
   price,
   priceInCents,
-  featured = false,
   seller
 }: UseCaseCardProps) => {
   return (
-    <div className={`bg-gradient-card border rounded-xl p-6 shadow-card hover:shadow-glow transition-smooth group ${
-      featured ? 'border-primary/40 ring-1 ring-primary/20' : 'border-border'
-    }`}>
-      {featured && (
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-          Featured
-        </Badge>
-      )}
-      
+    <div className="bg-gradient-card border rounded-xl p-6 shadow-card hover:shadow-glow transition-smooth group border-border">
       <div className="space-y-4">
         {/* Header */}
         <div className="space-y-2">
@@ -68,22 +54,11 @@ const UseCaseCard = ({
           </p>
         </div>
 
-        {/* Metrics */}
-        <div className="grid grid-cols-2 gap-4 py-3 border-t border-b border-border/50">
-          <div className="flex items-center space-x-2">
-            <TrendingUp className="w-4 h-4 text-primary" />
-            <div>
-              <div className="text-sm font-medium text-card-foreground">{roi}</div>
-              <div className="text-xs text-muted-foreground">Average ROI</div>
-            </div>
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <Clock className="w-4 h-4 text-primary" />
-            <div>
-              <div className="text-sm font-medium text-card-foreground">{timeToImplement}</div>
-              <div className="text-xs text-muted-foreground">Implementation</div>
-            </div>
+        {/* Simple Implementation Focus */}
+        <div className="py-3 border-t border-b border-border/50">
+          <div className="text-center">
+            <div className="text-sm font-medium text-primary">Easy Implementation</div>
+            <div className="text-xs text-muted-foreground">Simple AI solution ready to deploy</div>
           </div>
         </div>
 
