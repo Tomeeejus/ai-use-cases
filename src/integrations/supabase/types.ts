@@ -270,6 +270,18 @@ export type Database = {
           website: string
         }[]
       }
+      get_seller_revenue_stats: {
+        Args: { seller_user_id: string }
+        Returns: {
+          avg_order_value: number
+          total_orders: number
+          total_revenue: number
+        }[]
+      }
+      validate_user_content: {
+        Args: { content: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
