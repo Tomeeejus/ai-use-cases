@@ -78,13 +78,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "orders_buyer_id_fkey"
-            columns: ["buyer_id"]
-            isOneToOne: false
-            referencedRelation: "public_profiles"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "orders_use_case_id_fkey"
             columns: ["use_case_id"]
             isOneToOne: false
@@ -176,13 +169,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "reviews_reviewer_id_fkey"
-            columns: ["reviewer_id"]
-            isOneToOne: false
-            referencedRelation: "public_profiles"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "reviews_use_case_id_fkey"
             columns: ["use_case_id"]
             isOneToOne: false
@@ -267,41 +253,11 @@ export type Database = {
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
-          {
-            foreignKeyName: "use_cases_seller_id_fkey"
-            columns: ["seller_id"]
-            isOneToOne: false
-            referencedRelation: "public_profiles"
-            referencedColumns: ["id"]
-          },
         ]
       }
     }
     Views: {
-      public_profiles: {
-        Row: {
-          avatar_url: string | null
-          bio: string | null
-          id: string | null
-          is_seller: boolean | null
-          website: string | null
-        }
-        Insert: {
-          avatar_url?: string | null
-          bio?: string | null
-          id?: string | null
-          is_seller?: boolean | null
-          website?: string | null
-        }
-        Update: {
-          avatar_url?: string | null
-          bio?: string | null
-          id?: string | null
-          is_seller?: boolean | null
-          website?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       get_public_profile: {
